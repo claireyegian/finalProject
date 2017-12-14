@@ -17,7 +17,10 @@ def buildBoard():
 if __name__ == '__main__':
     dead = Color(0xffffff,1)
     live = Color(0x000000,1)
+    lightGrey = Color(0xD3D3D3,1)
     
     data = {}
-    data['deadCell'] = RectangleAsset(50,50,LineStyle(1,dead),dead)
+    data['deadCell'] = RectangleAsset(50,50,LineStyle(1,lightGrey),dead)
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
+    
+    App().run()
