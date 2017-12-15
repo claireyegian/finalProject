@@ -4,7 +4,7 @@
 
 from ggame import *
 
-def buildBoard():
+def redrawAll():
     rowNum = 1
     for row in data['gameBoard']:
         columnNum = 1
@@ -13,7 +13,7 @@ def buildBoard():
             columnNum += 1
         rowNum += 1
 
-def mouseClick(event):
+"""def mouseClick(event):
     row = 50
     for item in data['gameBoard']:
         column = 50
@@ -22,7 +22,7 @@ def mouseClick(event):
             column += 50
         row += 50
     if (event.x>data['squareLocation'][0][0][0] and event.x<data['squareLocation'][0][0][1]):
-        print('yay')
+        print('yay')"""
     
 #mouseClick - Should take one argument, event. The function should figure out what row and column the user clicked 
 #(event.x and event.y have the coordinates of the click). It should change that cell to the opposite color of its 
@@ -34,12 +34,12 @@ if __name__ == '__main__':
     lightGrey = Color(0xD3D3D3,1)
     
     data = {}
-    data['squareLocation'] = data['gameBoard']
     data['gameBoard'] = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
+    data['squareLocation'] = data['gameBoard']
     data['deadCell'] = RectangleAsset(50,50,LineStyle(1,lightGrey),dead)
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
     
-    buildBoard()
+    redrawAll()
     
     App().listenMouseEvent('click',mouseClick)
     App().run()
