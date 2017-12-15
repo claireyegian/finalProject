@@ -18,7 +18,7 @@ def redrawAll():
         rowNum += 1
 
 def mouseClick(event):
-    
+    column = 25
     if (event.x>20 and event.x<70) and (event.y>185 and event.y<235):
         print('yay')
     
