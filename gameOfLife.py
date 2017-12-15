@@ -14,6 +14,13 @@ def buildBoard():
         rowNum += 1
 
 def mouseClick(event):
+    row = 50
+    for item in data['gameBoard']:
+        column = 50
+        for value in item:
+            data['squareLocation'][value] = [column-25,row-25]
+            column += 50
+        row += 50
     if (event.x>20 and event.x<70) and (event.y>185 and event.y<235):
         processNumber(1)
     
@@ -27,6 +34,7 @@ if __name__ == '__main__':
     lightGrey = Color(0xD3D3D3,1)
     
     data = {}
+    data['squareLocation'] = data['gameBoard']
     data['gameBoard'] = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
     data['deadCell'] = RectangleAsset(50,50,LineStyle(1,lightGrey),dead)
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
