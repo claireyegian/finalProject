@@ -8,6 +8,7 @@ def gameBoard():
     data['gameBoard'] = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
 
 def redrawAll():
+    gameBoard()
     rowNum = 1
     for row in data['gameBoard']:
         columnNum = 1
@@ -17,7 +18,7 @@ def redrawAll():
         rowNum += 1
 
 """def mouseClick(event):
-
+    
     if (event.x>data['squareLocation'][0][0][0] and event.x<data['squareLocation'][0][0][1]):
         print('yay')"""
     
