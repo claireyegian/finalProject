@@ -13,14 +13,11 @@ def redrawAll():
             columnNum += 1
         rowNum += 1
 
+def gameBoard():
+    data['gameBoard'] = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
+
 """def mouseClick(event):
-    row = 50
-    for item in data['gameBoard']:
-        column = 50
-        for value in item:
-            data['squareLocation'][value] = [column-25,row-25]
-            column += 50
-        row += 50
+
     if (event.x>data['squareLocation'][0][0][0] and event.x<data['squareLocation'][0][0][1]):
         print('yay')"""
     
@@ -34,8 +31,6 @@ if __name__ == '__main__':
     lightGrey = Color(0xD3D3D3,1)
     
     data = {}
-    data['gameBoard'] = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
-    data['squareLocation'] = data['gameBoard']
     data['deadCell'] = RectangleAsset(50,50,LineStyle(1,lightGrey),dead)
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
     
