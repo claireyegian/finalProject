@@ -9,9 +9,9 @@ def buildBoard():
     for row in data['gameBoard']:
         columnNum = 1
         for column in row:
-            Sprite(data['deadCell'],((rowNum*50)-25,(columnNum*50)-25))
-        columnNum += 1
-    rowNum += 1
+            Sprite(data['deadCell'],((columnNum*50)-25,(rowNum*50)-25))
+            columnNum += 1
+        rowNum += 1
 
 if __name__ == '__main__':
     dead = Color(0xffffff,1)
