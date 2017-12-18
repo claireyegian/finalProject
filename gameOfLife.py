@@ -20,7 +20,9 @@ def redrawAll():
 def mouseClick(event):
     row = (event.x-25)//50
     column = (event.y-25)//50
-    print(row,column)
+    if row > 9:
+        print('next generation')
+    Sprite(data['liveCell'],((column*50)-25,(row*50)-25))
     
 #mouseClick - Should take one argument, event. The function should figure out what row and column the user clicked 
 #(event.x and event.y have the coordinates of the click). It should change that cell to the opposite color of its 
