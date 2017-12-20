@@ -14,7 +14,6 @@ def redrawAll():
         columnNum = 1
         for column in row:
             Sprite(data['deadCell'],((columnNum*50)-25,(rowNum*50)-25))
-            data['cellStatus'].append('live')
             columnNum += 1
         rowNum += 1
 
@@ -23,12 +22,12 @@ def mouseClick(event):
     column = (event.y-25)//50
     if row > 9:
         print('next generation')
-    if data['cellStatus'][row+(10*column)] == 'dead':
+    if data['gameBoard'][row][column] == 0:
         Sprite(data['liveCell'],(((row+1)*50)-25,((column+1)*50)-25))
-        data['cellStatus'][row+(10*column)] = 'live'
-    if data['cellStatus'][row+(10*column)] == 'live':
+        data['gameBoard'][row][column] = 1
+    if data['gameBoard'][row][column] == 1:
         Sprite(data['deadCell'],(((row+1)*50)-25,((column+1)*50)-25))
-        data['cellStatus'][row+(10*column)] = 'dead'
+        data['gameBoard'][row][column] = 0
     
 #mouseClick - Should take one argument, event. The function should figure out what row and column the user clicked 
 #(event.x and event.y have the coordinates of the click). It should change that cell to the opposite color of its 
@@ -42,7 +41,6 @@ if __name__ == '__main__':
     data = {}
     data['deadCell'] = RectangleAsset(50,50,LineStyle(1,lightGrey),dead)
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
-    data['cellStatus'] = []
     
     redrawAll()
     
