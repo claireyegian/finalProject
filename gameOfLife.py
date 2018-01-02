@@ -22,12 +22,13 @@ def mouseClick(event):
     column = (event.y-25)//50
     if row > 9:
         print('next generation')
-    if data['gameBoard'][row][column] == 0:
+    Sprite(data['liveCell'],(((row+1)*50)-25,((column+1)*50)-25))
+    """if data['gameBoard'][row][column] == 0:
         Sprite(data['liveCell'],(((row+1)*50)-25,((column+1)*50)-25))
         data['gameBoard'][row][column] = 1
     if data['gameBoard'][row][column] == 1:
         Sprite(data['deadCell'],(((row+1)*50)-25,((column+1)*50)-25))
-        data['gameBoard'][row][column] = 0
+        data['gameBoard'][row][column] = 0"""
     
 #mouseClick - Should take one argument, event. The function should figure out what row and column the user clicked 
 #(event.x and event.y have the coordinates of the click). It should change that cell to the opposite color of its 
