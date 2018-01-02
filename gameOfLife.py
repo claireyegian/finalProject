@@ -14,9 +14,9 @@ def redrawAll():
         columnNum = 0
         for column in row:
             if data['gameBoard'][rowNum][columnNum] == 0:
-                Sprite(data['deadCell'],(columnNum*50,rowNum*50)
+                Sprite(data['deadCell'],(columnNum*50,rowNum*50))
             if data['gameBoard'][rowNum][columnNum] == 1:
-                Sprite(data['liveCell'],(columnNum*50,rowNum*50)
+                Sprite(data['liveCell'],(columnNum*50,rowNum*50))
             columnNum += 1
         rowNum += 1
 
