@@ -9,17 +9,20 @@ def gameBoard():
 
 def redrawAll():
     gameBoard()
-    rowNum = 1
+    rowNum = 0
     for row in data['gameBoard']:
-        columnNum = 1
+        columnNum = 0
         for column in row:
-            Sprite(data['deadCell'],((columnNum*50)-25,(rowNum*50)-25))
+            if data['gameBoard'][rowNum][columnNum] == 0:
+                Sprite(data['deadCell'],(columnNum*50,rowNum*50)
+            if data['gameBoard'][rowNum][columnNum] == 1:
+                Sprite(data['liveCell'],(columnNum*50,rowNum*50)
             columnNum += 1
         rowNum += 1
 
 def mouseClick(event):
-    row = (event.x-25)//50
-    column = (event.y-25)//50
+    row = event.x//50
+    column = event.y//50
     if row > 9:
         print('next generation')
     """Sprite(data['liveCell'],(((row+1)*50)-25,((column+1)*50)-25))
