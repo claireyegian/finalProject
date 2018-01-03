@@ -73,5 +73,8 @@ if __name__ == '__main__':
     gameBoard()
     redrawAll()
     
+    nextGen = TextAsset('Next Generation')
+    Sprite(scoreBox,(500,10))
+    
     App().listenMouseEvent('click',mouseClick)
     App().run()
