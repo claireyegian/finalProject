@@ -36,19 +36,19 @@ def numNeighbors(rowNum, columnNum):
                     numNeighbors = 0
                     if data['gameBoard'][columnNum+1][rowNum] == 1:
                         numNeighbors = numNeighbors + 1
-                    elif data['gameBoard'][columnNum+1][rowNum+1] == 1:
+                    if data['gameBoard'][columnNum+1][rowNum+1] == 1:
                         numNeighbors = numNeighbors + 1
-                    elif data['gameBoard'][columnNum+1][rowNum-1] == 1:
+                    if data['gameBoard'][columnNum+1][rowNum-1] == 1:
                         numNeighbors = numNeighbors + 1
-                    elif data['gameBoard'][columnNum-1][rowNum] == 1:
+                    if data['gameBoard'][columnNum-1][rowNum] == 1:
                         numNeighbors = numNeighbors + 1
-                    elif data['gameBoard'][columnNum-1][rowNum+1] == 1:
+                    if data['gameBoard'][columnNum-1][rowNum+1] == 1:
                         numNeighbors = numNeighbors + 1
-                    elif data['gameBoard'][columnNum-1][rowNum-1] == 1:
+                    if data['gameBoard'][columnNum-1][rowNum-1] == 1:
                         numNeighbors = numNeighbors + 1
-                    elif data['gameBoard'][columnNum][rowNum+1] == 1:
+                    if data['gameBoard'][columnNum][rowNum+1] == 1:
                         numNeighbors = numNeighbors + 1
-                    elif data['gameBoard'][columnNum][rowNum-1] == 1:
+                    if data['gameBoard'][columnNum][rowNum-1] == 1:
                         numNeighbors = numNeighbors + 1
                     print(numNeighbors)
     
