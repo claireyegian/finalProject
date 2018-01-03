@@ -27,7 +27,7 @@ def mouseClick(event):
     else:
         data['gameBoard'][column][row] = 0
     redrawAll()
-    if (row*50>175 and row*50<325) and (column*50>510 and column*50<550):
+    if (event.x>175 and event.x<325) and (event.y>510 and event.y<550):
         nextGeneration()
 
 def nextGeneration():
@@ -36,29 +36,35 @@ def nextGeneration():
         columnNum = 0
         for column in row:
             numNieghbors(rowNum,columnNum)
+            if (data['gameBoard'][columnNum][rowNum] == 1) and numNieghbors<2:
+                data['gameBoard'][columnNum][rowNum] = 0
+            if (data['gameBoard'][columnNum][rowNum] == 1) and numNieghbors>3:
+                data['gameBoard'][columnNum][rowNum] = 0
+            if (data['gameBoard'][columnNum][rowNum] == 0) and numNieghbors == 3:
+                data['gameBoard'][columnNum][rowNum] == 1
             columnNum += 1
         rowNum += 1
 
 def numNeighbors(rowNum,columNum):
-    if data['gameBoard'][columnNum][rowNum] == 1:
-        numNeighbors = 0
-        if data['gameBoard'][columnNum+1][rowNum] == 1:
-            numNeighbors = numNeighbors + 1
-        if data['gameBoard'][columnNum+1][rowNum+1] == 1:
-            numNeighbors = numNeighbors + 1
-        if data['gameBoard'][columnNum+1][rowNum-1] == 1:
-            numNeighbors = numNeighbors + 1
-        if data['gameBoard'][columnNum-1][rowNum] == 1:
-            numNeighbors = numNeighbors + 1
-        if data['gameBoard'][columnNum-1][rowNum+1] == 1:
-            numNeighbors = numNeighbors + 1
-        if data['gameBoard'][columnNum-1][rowNum-1] == 1:
-            numNeighbors = numNeighbors + 1
-        if data['gameBoard'][columnNum][rowNum+1] == 1:
-            numNeighbors = numNeighbors + 1
-        if data['gameBoard'][columnNum][rowNum-1] == 1:
-            numNeighbors = numNeighbors + 1
+    numNeighbors = 0
+    if data['gameBoard'][columnNum+1][rowNum] == 1:
+        numNeighbors = numNeighbors + 1
+    if data['gameBoard'][columnNum+1][rowNum+1] == 1:
+        numNeighbors = numNeighbors + 1
+    if data['gameBoard'][columnNum+1][rowNum-1] == 1:
+        numNeighbors = numNeighbors + 1
+    if data['gameBoard'][columnNum-1][rowNum] == 1:
+        numNeighbors = numNeighbors + 1
+    if data['gameBoard'][columnNum-1][rowNum+1] == 1:
+        numNeighbors = numNeighbors + 1
+    if data['gameBoard'][columnNum-1][rowNum-1] == 1:
+        numNeighbors = numNeighbors + 1
+    if data['gameBoard'][columnNum][rowNum+1] == 1:
+        numNeighbors = numNeighbors + 1
+    if data['gameBoard'][columnNum][rowNum-1] == 1:
+        numNeighbors = numNeighbors + 1
     print(numNeighbors)
+    return(numNeighbors)
     
 #DONT FORGET COMMENTS
 
