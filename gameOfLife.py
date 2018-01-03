@@ -18,7 +18,6 @@ def redrawAll():
                 Sprite(data['liveCell'],(columnNum*50,rowNum*50))
             columnNum += 1
         rowNum += 1
-    numNeighbors(rowNum,columnNum)
 
 def mouseClick(event):
     row = event.x//50
@@ -28,6 +27,7 @@ def mouseClick(event):
     else:
         data['gameBoard'][column][row] = 0
     redrawAll()
+    numNeighbors(row,column)
 
 def numNeighbors(rowNum, columnNum):
     for row in data['gameBoard']:
