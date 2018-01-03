@@ -8,7 +8,6 @@ def gameBoard():
     data['gameBoard'] = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
 
 def redrawAll():
-    gameBoard()
     rowNum = 0
     for row in data['gameBoard']:
         columnNum = 0
@@ -29,7 +28,7 @@ def mouseClick(event):
     data['gameBoard'][row][column] = 1"""
     if data['gameBoard'][row][column] == 0:
         data['gameBoard'][row][column] = 1
-    if data['gameBoard'][row][column] == 1:
+    else:
         data['gameBoard'][row][column] = 0
     redrawAll()
 
@@ -48,6 +47,7 @@ if __name__ == '__main__':
     data['deadCell'] = RectangleAsset(50,50,LineStyle(1,lightGrey),dead)
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
     
+    gameBoard()
     redrawAll()
     
     App().listenMouseEvent('click',mouseClick)
