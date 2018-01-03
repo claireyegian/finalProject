@@ -29,9 +29,15 @@ def mouseClick(event):
     redrawAll()
     numNeighbors(row,column)
 
-def numNeighbors(rowNum, columnNum):
+def nextGeneration():
+    rowNum = 0 
     for row in data['gameBoard']:
+        columnNum = 0
         for column in row:
+            numNieghbors(, columnNum)
+
+
+
                 if column == 1:
                     numNeighbors = 0
                     if data['gameBoard'][columnNum+1][rowNum] == 1:
