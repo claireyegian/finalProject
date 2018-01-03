@@ -74,7 +74,7 @@ if __name__ == '__main__':
     redrawAll()
     
     nextGen = TextAsset('Next Generation')
-    Sprite(scoreBox,(500,10))
+    Sprite(nextGen,(190,520))
     
     App().listenMouseEvent('click',mouseClick)
     App().run()
