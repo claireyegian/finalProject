@@ -27,6 +27,8 @@ def mouseClick(event):
     else:
         data['gameBoard'][column][row] = 0
     redrawAll()
+    if (row*50>175 and row*50<325) and (column*50>510 and column*50<550):
+        nextGeneration()
 
 def nextGeneration():
     rowNum = 0 
@@ -73,7 +75,7 @@ if __name__ == '__main__':
     gameBoard()
     redrawAll()
     
-    nextGen = TextAsset('Next Generation')
+    nextGen = TextAsset('NextGeneration')
     Sprite(nextGen,(190,520))
     
     App().listenMouseEvent('click',mouseClick)
