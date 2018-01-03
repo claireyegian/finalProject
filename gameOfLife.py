@@ -18,7 +18,7 @@ def redrawAll():
                 Sprite(data['liveCell'],(columnNum*50,rowNum*50))
             columnNum += 1
         rowNum += 1
-    """numNeighbors(rowNum,columnNum)"""
+    numNeighbors(rowNum,columnNum)
 
 def mouseClick(event):
     row = event.x//50
@@ -33,24 +33,24 @@ def numNeighbors(rowNum, columnNum):
     for row in data['gameBoard']:
         for column in row:
                 if column == 1:
-                numNeighbors = 0
-                if data['gameBoard'][columnNum+1][rowNum] == 1:
-                    numNeighbors = numNeighbors + 1
-                elif data['gameBoard'][columnNum+1][rowNum+1] == 1:
-                    numNeighbors = numNeighbors + 1
-                elif data['gameBoard'][columnNum+1][rowNum-1] == 1:
-                    numNeighbors = numNeighbors + 1
-                elif data['gameBoard'][columnNum-1][rowNum] == 1:
-                    numNeighbors = numNeighbors + 1
-                elif data['gameBoard'][columnNum-1][rowNum+1] == 1:
-                    numNeighbors = numNeighbors + 1
-                elif data['gameBoard'][columnNum-1][rowNum-1] == 1:
-                    numNeighbors = numNeighbors + 1
-                elif data['gameBoard'][columnNum][rowNum+1] == 1:
-                    numNeighbors = numNeighbors + 1
-                elif data['gameBoard'][columnNum][rowNum-1] == 1:
-                    numNeighbors = numNeighbors + 1
-                print(numNeighbors)
+                    numNeighbors = 0
+                    if data['gameBoard'][columnNum+1][rowNum] == 1:
+                        numNeighbors = numNeighbors + 1
+                    elif data['gameBoard'][columnNum+1][rowNum+1] == 1:
+                        numNeighbors = numNeighbors + 1
+                    elif data['gameBoard'][columnNum+1][rowNum-1] == 1:
+                        numNeighbors = numNeighbors + 1
+                    elif data['gameBoard'][columnNum-1][rowNum] == 1:
+                        numNeighbors = numNeighbors + 1
+                    elif data['gameBoard'][columnNum-1][rowNum+1] == 1:
+                        numNeighbors = numNeighbors + 1
+                    elif data['gameBoard'][columnNum-1][rowNum-1] == 1:
+                        numNeighbors = numNeighbors + 1
+                    elif data['gameBoard'][columnNum][rowNum+1] == 1:
+                        numNeighbors = numNeighbors + 1
+                    elif data['gameBoard'][columnNum][rowNum-1] == 1:
+                        numNeighbors = numNeighbors + 1
+                    print(numNeighbors)
     
 #DONT FORGET COMMENTS
 
