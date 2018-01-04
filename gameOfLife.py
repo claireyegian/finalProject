@@ -20,27 +20,28 @@ def redrawAll():
         rowNum += 1
 
 def mouseClick(event):
-    row = event.x//50
-    column = event.y//50
-    if data['gameBoard'][column][row] == 0:
-        data['gameBoard'][column][row] = 1
-    else:
-        data['gameBoard'][column][row] = 0
-    redrawAll()
     if (event.x>175 and event.x<325) and (event.y>510 and event.y<550):
         nextGeneration()
+    else:
+        row = event.x//50
+        column = event.y//50
+        if data['gameBoard'][column][row] == 0:
+            data['gameBoard'][column][row] = 1
+        else:
+            data['gameBoard'][column][row] = 0
+        redrawAll()
 
 def nextGeneration():
     rowNum = 0 
     for row in data['gameBoard']:
         columnNum = 0
         for column in row:
-            numNieghbors(rowNum,columnNum)
-            if (data['gameBoard'][columnNum][rowNum] == 1) and numNieghbors<2:
+            numNeighbors(rowNum,columnNum)
+            if (data['gameBoard'][columnNum][rowNum] == 1) and numNeighbors<2:
                 data['gameBoard'][columnNum][rowNum] = 0
-            if (data['gameBoard'][columnNum][rowNum] == 1) and numNieghbors>3:
+            if (data['gameBoard'][columnNum][rowNum] == 1) and numNeighbors>3:
                 data['gameBoard'][columnNum][rowNum] = 0
-            if (data['gameBoard'][columnNum][rowNum] == 0) and numNieghbors == 3:
+            if (data['gameBoard'][columnNum][rowNum] == 0) and numNeighbors == 3:
                 data['gameBoard'][columnNum][rowNum] == 1
             columnNum += 1
         rowNum += 1
