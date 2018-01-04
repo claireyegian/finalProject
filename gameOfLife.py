@@ -53,7 +53,7 @@ def nextGeneration():
 
 def numNeighbors(rowNum,columnNum):
     numNeighbors = 0
-    if columnNum<10 and data['gameBoard'][columnNum+1][rowNum] == 1:
+    if columnNum<10 and (data['gameBoard'][columnNum+1][rowNum] == 1):
         numNeighbors = numNeighbors + 1
     if columnNum<10 and rowNum<10 and data['gameBoard'][columnNum+1][rowNum+1] == 1:
         numNeighbors = numNeighbors + 1
