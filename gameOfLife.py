@@ -38,11 +38,13 @@ def nextGeneration():
         for column in row:
             numNeighbors(rowNum,columnNum)
             if (data['gameBoard'][columnNum][rowNum] == 1) and numNeighbors<2:
-                data['gameBoard'][columnNum][rowNum] = 0
+                data['gameBoardUpdate'].append(0)
             if (data['gameBoard'][columnNum][rowNum] == 1) and numNeighbors>3:
-                data['gameBoard'][columnNum][rowNum] = 0
+                data['gameBoardUpdate'].append(0)
             if (data['gameBoard'][columnNum][rowNum] == 0) and numNeighbors == 3:
-                data['gameBoard'][columnNum][rowNum] == 1
+                data['gameBoardUpdate'].append(1)
+            if (data['gameBoard'][columnNum][rowNum] == 1) and (numNeighbors == 3 or numNeighbors == 2):
+                data['gameBoardUpdate'].append(1)
             columnNum += 1
         rowNum += 1
 
@@ -77,6 +79,7 @@ if __name__ == '__main__':
     data = {}
     data['deadCell'] = RectangleAsset(50,50,LineStyle(1,lightGrey),dead)
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
+    data['gameBoardUpdate'] = []
     
     gameBoard()
     redrawAll()
