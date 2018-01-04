@@ -5,7 +5,7 @@
 from ggame import *
 
 def gameBoard():
-    data['gameBoard'] = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
+    return [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
 
 def redrawAll():
     rowNum = 0
@@ -32,21 +32,24 @@ def mouseClick(event):
         redrawAll()
 
 def nextGeneration():
+    data['gameBoardUpdate'] = gameBoard()
     rowNum = 0 
     for row in data['gameBoard']:
         columnNum = 0
         for column in row:
             numNeighbors(rowNum,columnNum)
             if (data['gameBoard'][columnNum][rowNum] == 1) and numNeighbors<2:
-                data['gameBoardUpdate'].append(0)
+                data['gameBoardUpdate'][rowNum][columnNum] = 0
             if (data['gameBoard'][columnNum][rowNum] == 1) and numNeighbors>3:
-                data['gameBoardUpdate'].append(0)
+                data['gameBoardUpdate'][rowNum][columnNum] = 0
             if (data['gameBoard'][columnNum][rowNum] == 0) and numNeighbors == 3:
-                data['gameBoardUpdate'].append(1)
+                data['gameBoardUpdate'][rowNum][columnNum] = 1
             if (data['gameBoard'][columnNum][rowNum] == 1) and (numNeighbors == 3 or numNeighbors == 2):
-                data['gameBoardUpdate'].append(1)
+                data['gameBoardUpdate'][rowNum][columnNum] = 1
             columnNum += 1
         rowNum += 1
+    data['gameBoard'] = data['gameBoardUpdate']
+    redrawAll()
 
 def numNeighbors(rowNum,columnNum):
     numNeighbors = 0
@@ -81,7 +84,7 @@ if __name__ == '__main__':
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
     data['gameBoardUpdate'] = []
     
-    gameBoard()
+    data['gameBoard'] = gameBoard()
     redrawAll()
     
     nextGen = TextAsset('NextGeneration')
