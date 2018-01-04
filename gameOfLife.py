@@ -48,7 +48,7 @@ def nextGeneration():
             columnNum += 1
         rowNum += 1
 
-def numNeighbors(rowNum,columNum):
+def numNeighbors(rowNum,columnNum):
     numNeighbors = 0
     if data['gameBoard'][columnNum+1][rowNum] == 1:
         numNeighbors = numNeighbors + 1
