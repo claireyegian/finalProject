@@ -53,21 +53,21 @@ def nextGeneration():
 
 def numNeighbors(rowNum,columnNum):
     numNeighbors = 0
-    if data['gameBoard'][columnNum+1][rowNum] == 1:
+    if columnNum<10 and data['gameBoard'][columnNum+1][rowNum] == 1:
         numNeighbors = numNeighbors + 1
-    if data['gameBoard'][columnNum+1][rowNum+1] == 1:
+    if columnNum<10 and rowNum<10 and data['gameBoard'][columnNum+1][rowNum+1] == 1:
         numNeighbors = numNeighbors + 1
-    if data['gameBoard'][columnNum+1][rowNum-1] == 1:
+    if columnNum<10 and rowNum>0 and data['gameBoard'][columnNum+1][rowNum-1] == 1:
         numNeighbors = numNeighbors + 1
-    if data['gameBoard'][columnNum-1][rowNum] == 1:
+    if columnNum>0 and data['gameBoard'][columnNum-1][rowNum] == 1:
         numNeighbors = numNeighbors + 1
-    if data['gameBoard'][columnNum-1][rowNum+1] == 1:
+    if columnNum>0 and rowNum<10 and data['gameBoard'][columnNum-1][rowNum+1] == 1:
         numNeighbors = numNeighbors + 1
-    if data['gameBoard'][columnNum-1][rowNum-1] == 1:
+    if columnNum>0 and rowNum>0 and data['gameBoard'][columnNum-1][rowNum-1] == 1:
         numNeighbors = numNeighbors + 1
-    if data['gameBoard'][columnNum][rowNum+1] == 1:
+    if rowNum<10 and data['gameBoard'][columnNum][rowNum+1] == 1:
         numNeighbors = numNeighbors + 1
-    if data['gameBoard'][columnNum][rowNum-1] == 1:
+    if rowNum>0 and data['gameBoard'][columnNum][rowNum-1] == 1:
         numNeighbors = numNeighbors + 1
     print(numNeighbors)
     return(numNeighbors)
