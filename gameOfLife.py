@@ -72,6 +72,7 @@ def numNeighbors(rowNum,columnNum):
     return(numNeighbors)
     
 #DONT FORGET COMMENTS
+#cs1-p2 = email subject
 
 if __name__ == '__main__':
     dead = Color(0xffffff,1)
