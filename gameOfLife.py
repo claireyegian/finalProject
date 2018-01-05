@@ -37,14 +37,14 @@ def nextGeneration():
     for row in data['gameBoard']:
         columnNum = 0
         for column in row:
-            numNeighbors(rowNum,columnNum)
-            if (data['gameBoard'][columnNum][rowNum] == 1) and numNeighbors<2:
+            numLive = numNeighbors(rowNum,columnNum)
+            if (data['gameBoard'][columnNum][rowNum] == 1) and numLive<2:
                 data['gameBoardUpdate'][rowNum][columnNum] = 0
-            if (data['gameBoard'][columnNum][rowNum] == 1) and numNeighbors>3:
+            if (data['gameBoard'][columnNum][rowNum] == 1) and numLive>3:
                 data['gameBoardUpdate'][rowNum][columnNum] = 0
-            if (data['gameBoard'][columnNum][rowNum] == 0) and numNeighbors == 3:
+            if (data['gameBoard'][columnNum][rowNum] == 0) and numLive == 3:
                 data['gameBoardUpdate'][rowNum][columnNum] = 1
-            if (data['gameBoard'][columnNum][rowNum] == 1) and (numNeighbors == 3 or numNeighbors == 2):
+            if (data['gameBoard'][columnNum][rowNum] == 1) and (numLive == 3 or numLive == 2):
                 data['gameBoardUpdate'][rowNum][columnNum] = 1
             columnNum += 1
         rowNum += 1
