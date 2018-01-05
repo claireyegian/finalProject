@@ -69,7 +69,6 @@ def numNeighbors(rowNum,columnNum):
         numNeighbors = numNeighbors + 1
     if rowNum>0 and data['gameBoard'][columnNum][rowNum-1] == 1:
         numNeighbors = numNeighbors + 1
-    print(numNeighbors)
     return(numNeighbors)
     
 #DONT FORGET COMMENTS
