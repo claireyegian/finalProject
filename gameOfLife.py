@@ -4,9 +4,11 @@
 
 from ggame import *
 
+#Creates gameboard
 def gameBoard():
     return [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
 
+#Prints gameboard (with any updates)
 def redrawAll():
     rowNum = 0
     for row in data['gameBoard']:
@@ -19,6 +21,7 @@ def redrawAll():
             columnNum += 1
         rowNum += 1
 
+#Finds out which box the user clicked, and changes the status of that cell (live vs dead)
 def mouseClick(event):
     if (event.x>175 and event.x<325) and (event.y>510 and event.y<550):
         nextGeneration()
@@ -31,6 +34,7 @@ def mouseClick(event):
             data['gameBoard'][column][row] = 0
         redrawAll()
 
+#Determines which boxes will live on to the next generation and which will die; resets gameboard with these updates
 def nextGeneration():
     data['gameBoardUpdate'] = gameBoard()
     rowNum = 0 
@@ -39,18 +43,19 @@ def nextGeneration():
         for column in row:
             numLive = numNeighbors(rowNum,columnNum)
             if (data['gameBoard'][columnNum][rowNum] == 1) and numLive<2:
-                data['gameBoardUpdate'][rowNum][columnNum] = 0
+                data['gameBoardUpdate'][columnNum][rowNum] = 0
             if (data['gameBoard'][columnNum][rowNum] == 1) and numLive>3:
-                data['gameBoardUpdate'][rowNum][columnNum] = 0
+                data['gameBoardUpdate'][columnNum][rowNum] = 0
             if (data['gameBoard'][columnNum][rowNum] == 0) and numLive == 3:
-                data['gameBoardUpdate'][rowNum][columnNum] = 1
+                data['gameBoardUpdate'][columnNum][rowNum] = 1
             if (data['gameBoard'][columnNum][rowNum] == 1) and (numLive == 3 or numLive == 2):
-                data['gameBoardUpdate'][rowNum][columnNum] = 1
+                data['gameBoardUpdate'][columnNum][rowNum] = 1
             columnNum += 1
         rowNum += 1
     data['gameBoard'] = data['gameBoardUpdate']
     redrawAll()
 
+#finds and returns the number of living neighbors for each cell
 def numNeighbors(rowNum,columnNum):
     numNeighbors = 0
     if columnNum<9 and data['gameBoard'][columnNum+1][rowNum] == 1:
@@ -70,16 +75,13 @@ def numNeighbors(rowNum,columnNum):
     if rowNum>0 and data['gameBoard'][columnNum][rowNum-1] == 1:
         numNeighbors = numNeighbors + 1
     return(numNeighbors)
-    
-#DONT FORGET COMMENTS
-#cs1-p2 = email subject
 
 if __name__ == '__main__':
-    dead = Color(0xffffff,1)
+    dead = Color(0xffffff,1) #Colors used in program
     live = Color(0x000000,1)
     lightGrey = Color(0xD3D3D3,1)
     
-    data = {}
+    data = {} #Program dictionary
     data['deadCell'] = RectangleAsset(50,50,LineStyle(1,lightGrey),dead)
     data['liveCell'] = RectangleAsset(50,50,LineStyle(1,live),live)
     data['gameBoardUpdate'] = []
